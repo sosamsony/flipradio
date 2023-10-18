@@ -1,0 +1,66 @@
+#channels {
+  display: flex;
+  justify-content: stretch;
+}
+
+.channelsListElem {
+  /* horizontal menu */
+  flex-grow: 1;
+  float: left;
+
+  --elem-accent: transparent;
+  box-shadow: inset var(--elem-accent) 0px -3px;
+}
+
+.channelsListElem a {
+  display: block;
+  padding: 10px 14px;
+  color: var(--channel-hover-color);
+  filter: saturate(0.8);
+  text-decoration: none;
+  text-align: center;
+}
+
+.channelsListElem a:focus {
+  outline-offset: -1px;
+}
+
+/* prevents layout changes when text becomes bold by having a hidden bold text block there so layout is calculated with that */
+.channelsListElem a::after {
+  display: block;
+  content: attr(data-title);
+  font-weight: bold;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+.channelsListElem:hover {
+  box-shadow: inset var(--channel-hover-color) 0px -3px;
+}
+
+.channelsListElem[data-active=true] {
+  font-weight: bold;
+  box-shadow: inset var(--active-channel-color) 0px -3px;
+}
+
+.channelsListElem[data-active=true] a {
+  color: var(--active-channel-color);
+}
+
+.active-marker-container {
+  position: relative;
+  bottom: 3px;
+  margin: auto;
+  width: 9px;
+  height: 0;
+  fill: var(--active-channel-color);
+}
+
+/* grid with dynamic 3 to 5 columns: https://stackoverflow.com/a/69154193 */
+@media screen and (max-width: 1000px) {
+  #channels {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%/2, max(150px, 100%/5)), 1fr));
+  }
+}
