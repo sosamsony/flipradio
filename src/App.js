@@ -226,14 +226,14 @@ function App() {
   }
 
   function setMailLinkToContactMail() {
-    // antispam
-    let a = 'ma'
-    let x = 'look.c'
-    let m = 'zim_tigerclaw'.replace('_', '') + '\u0040out' + x + 'om'
-    let o = 'o'
-    let u = a + 'ilt' + o + ':' + m
-    setMailLink(u)
-  }
+  // antispam
+  let a = 'he'
+  let x = 'm'
+  let m = 'hello@sosamson.com'
+  let o = 'o'
+  let u = a + 'lp' + o + ':' + m
+  setMailLink(u)
+}
 
   function focusActiveChannel() {
     let activeChannelLink = document.querySelector('div[data-active=true] a');
